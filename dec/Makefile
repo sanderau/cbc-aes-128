@@ -1,8 +1,8 @@
 CC = gcc
 CFLAGS = -g -O0 -Wall -msse2 -msse -march=native -maes
-HDR = aes128.h
+HDR = aes128.h read_ptxt.h
 OBJ = aes128.o
-SRC = aes128.c cbc_dec.c
+SRC = aes128.c cbc_dec.c read_ptxt.c
 MEM = valgrind --tool=memcheck --leak-check=yes --show-reachable=yes --num-callers=20 --track-fds=yes
 
 make:

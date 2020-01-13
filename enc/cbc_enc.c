@@ -62,6 +62,17 @@ void print_ctxt(int8_t ***ctxt, int num_blocks)
 
 }
 
+void write_ctxt(int8_t ***ctxt, int num_blocks)
+{
+	FILE *fptr = fopen("ciphertext", "w+");
+
+	for(int i = 0; i < num_blocks; i++)
+	{
+		fprintf(fptr, "%s", (*ctxt)[i]);
+	}
+}
+
+
 int main(int argc, char *argv[])
 {
 	// exit program if they forgot to include ptxt
@@ -98,6 +109,9 @@ int main(int argc, char *argv[])
 
 	//print after to see if there is succsefull change
 	//print_ctxt(&ctxt, num_blocks);
+	
+	//write the ciphertext to a file
+	write_ctxt(&ctxt, num_blocks);
 
 	// free the memory
 	free_ptxt(&ptxt, num_blocks);
