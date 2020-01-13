@@ -10,6 +10,9 @@ make:
 
 key:
 	${CC} keygen.c -o keygen
+	./keygen
+	cp ./key ../dec/
+	rm keygen
 
 memcheck:
 	${MEM} ./cbc_enc plaintext
